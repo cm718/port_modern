@@ -23,7 +23,7 @@
     --fs-body: 1rem;
     
     --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
-          0.125em 0.125em 0.25 rgba(0,0,0,.15)
+          0.125em 0.125em 0.25 rgba(0,0,0,.15);
 }
 
 @media (min-width: 800px) {
@@ -261,6 +261,7 @@ nav { display: none; }
         grid-area: img;
         position: relative;
         z-index: 2;
+        width: 200px;
     }
 }
 
@@ -272,3 +273,29 @@ nav { display: none; }
     text-align: center;
 }
 
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.portfolio__item {
+    background: var(--clr-dark);
+    overflow: hidden;
+}
+
+.portfolio__img {
+    transition: 
+        transform 750ms cubic-bezier(.5, 0, .5, 1),
+        opacity 250ms linear;
+}
+
+.portfolio__item:focus {
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio__img:hover,
+.portfolio__item:focus .portfolio__img {
+    transform: scale(1.2);
+    opacity: .55;
+}
